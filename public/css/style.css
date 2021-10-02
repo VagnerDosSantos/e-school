@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #eeeeee;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    background: #212121;
+    color: white;
+}
+
+.container {
+    margin: 15px;
+}
+
+.display-center {
+    margin: 0 auto;
+}
+
+.background {
+    background: rgb(33, 150, 243);
+    background: linear-gradient(90deg, rgba(33, 150, 243, 1) 0%, rgba(156, 39, 176, 1) 100%);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
+    line-height: 46px;
+    margin: 0 5px 0 0;
+}
