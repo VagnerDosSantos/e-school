@@ -1,3 +1,5 @@
-require('./bootstrap');
+Vue.component('example-component', require('./../components/ExampleComponent.vue').default);
 
-require('alpinejs');
+// require('./bootstrap');
+
+// require('alpinejs');

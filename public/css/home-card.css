@@ -1,11 +1,38 @@
 .home-card {
-    height: 140px;
+    height: 150px;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
 
-.result-title{
-    font-size: 20px;
+.result {
+    display: flex;
+    text-shadow: 1px 1px 1px black;
+    color: white;
+    padding-top: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.result-info {
+    flex: 1;
+    margin-top: 25px;
+    font-size: 32px;
+}
+
+.result-icon {
+    flex: 1;
+}
+
+.result-icon-i {
+    font-size: 150px;
+    margin-top: -14px;
+}
+
+.result-title {
+    font-size: 34px;
+    position: relative;
+    top: -16px;
 }
 
 .blue-gradient {
@@ -26,4 +53,14 @@
 .purple-gradient {
     background: rgb(81, 45, 168);
     background: linear-gradient(90deg, rgba(81, 45, 168, 1) 0%, rgba(98, 0, 234, 1) 50%, rgba(124, 77, 255, 1) 100%);
+}
+
+.black-gradient {
+    background: rgb(33, 33, 33);
+    background: linear-gradient(90deg, rgba(33, 33, 33, 1) 0%, rgba(38, 50, 56, 1) 50%, rgba(55, 71, 79, 1) 100%);
+}
+
+#class {
+    height: 300px;
+    background-color: white;
 }

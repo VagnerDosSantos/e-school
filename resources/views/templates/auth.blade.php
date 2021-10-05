@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
     <style>
-        .container-fluid {
+        .container {
             margin: 0 auto;
         }
 

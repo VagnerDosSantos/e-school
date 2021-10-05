@@ -17,13 +17,15 @@
 
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <script src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body>
     <header>
         <nav class="grey darken-4">
-            <a href="#" style="display: block;" data-target="slide-out" class="sidenav-trigger"><i
-                    class="material-icons">menu</i>
+            <a href="#" style="display: block;" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"
+                    style="font-size: 40px;">menu</i>
             </a>
         </nav>
 
@@ -68,6 +70,7 @@
     </header>
 
     <main>
+        <div id="divisor" class="z-depth-2"></div>
         @yield('content')
     </main>
 
