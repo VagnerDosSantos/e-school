@@ -24,7 +24,7 @@ label {
     margin-bottom: 0;
 }
 
-.container-fluid {
+.container {
     margin: 15px;
     background: white;
     padding: 10px;
@@ -32,12 +32,9 @@ label {
     border-radius: 2px;
 }
 
-.container {
-    padding: 10px;
+.container-wb {
     margin: 15px;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
-    border-radius: 2px;
-    width: 100%;
+    padding: 10px;
 }
 
 .display-center {
@@ -64,6 +61,30 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 .sidenav li>a>i, .sidenav li>a>[class^="mdi-"], .sidenav li>a li>a>[class*="mdi-"], .sidenav li>a>i.material-icons {
     line-height: 46px;
     margin: 0 5px 0 0;
+}
+
+.sidenav li>a {
+    padding: 0 20px;
+}
+
+.sidenav .collapsible-header, .sidenav.fixed .collapsible-header {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sidenav .collapsible-body li a, .sidenav.fixed .collapsible-body li a {
+    padding: 0px 15px 0px 47px !important;
+    font-weight: 400;
+}
+
+.collapsible-header i {
+    width: 2rem;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-align: center;
+    margin-right: 2px;
+    color: rgba(0, 0, 0, 0.54);
 }
 
 [type="checkbox"]+span:not(.lever) {
