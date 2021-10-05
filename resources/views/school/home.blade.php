@@ -1,8 +1,8 @@
 @extends('templates.school')
 
 @section('content')
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts"></script> --}}
     <link rel="stylesheet" href="{{ asset('css/home-card.css') }}">
     <div class="container-wb">
         <div class="row">
@@ -66,12 +66,17 @@
             </div>
         </div>
     </div>
-    <div class="z-depth-2">
-        <div id="app">
-            <example-component></example-component>
-        </div>
-        <div id="class" class="col s12"></div>
-    </div>
 
-    {{-- <script src="{{ asset('js/bar.js') }}"></script> --}}
+    <div class="row z-depth-2">
+        <div id="class" class="col s12 p-15">
+            <label for="shift">Turno</label>
+            <select name="shift" id="shift" class="browser-default">
+                <option value="">Todos</option>
+                <option value="1">Matutino</option>
+                <option value="2">Vespertino</option>
+                <option value="3">Noturno</option>
+            </select>
+            <stacked-bar-chart></stacked-bar-chart>
+        </div>
+    </div>
 @endsection
