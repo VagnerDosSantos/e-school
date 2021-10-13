@@ -49,7 +49,7 @@ class CreateHelperTables extends Migration
         });
 
         Schema::create('courses', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->string("id", 32);
             $table->string('name', 100);
             $table->primary("id");
         });
@@ -58,23 +58,22 @@ class CreateHelperTables extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('census_id');
-            $table->string('abbreviation', 10);
+            $table->string('abbreviation', 50);
         });
 
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('census_id');
-            $table->tinyInteger('modality');
             $table->tinyInteger('order');
         });
 
         Schema::create('educational_institutions', function (Blueprint $table) {
             $table->integer("id")->unsigned();
             $table->string('name', 255);
-            $table->primary("id");
             $table->tinyInteger('situation');
             $table->string('city_id')->references('id')->on('cities');
+            
+            $table->primary("id");
         });
 
         Schema::create('class_names', function (Blueprint $table) {
@@ -106,7 +105,7 @@ class CreateHelperTables extends Migration
         });
 
         Schema::create('course_catalogs', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->integer("id");
             $table->string('name', 255);
             $table->primary("id");
         });

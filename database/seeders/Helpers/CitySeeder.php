@@ -1,28 +1,20 @@
 <?php
 
-namespace Database\Factories\Helpers;
+namespace Database\Seeders\Helpers;
 
+use Illuminate\Database\Seeder;
 use App\Models\Helpers\City;
-use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CityFactory extends Factory
+class CitySeeder extends Seeder
 {
     /**
-     * The name of the factory's corresponding model.
+     * Run the database seeds.
      *
-     * @var string
+     * @return void
      */
-    protected $model = City::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    public function run()
     {
-
-        $label_cidades = [
+        City::insert([
             ['id' => '1100015', 'name' => 'Alta Floresta D\'Oeste', 'fu_id' => '11'],
             ['id' => '1100023', 'name' => 'Ariquemes', 'fu_id' => '11'],
             ['id' => '1100031', 'name' => 'Cabixi', 'fu_id' => '11'],
@@ -5593,9 +5585,6 @@ class CityFactory extends Factory
             ['id' => '5222203', 'name' => 'Vila Boa', 'fu_id' => '52'],
             ['id' => '5222302', 'name' => 'Vila Propício', 'fu_id' => '52'],
             ['id' => '5300108', 'name' => 'Brasília', 'fu_id' => '53']
-        ];
-        foreach ($label_cidades as $label_cidade) {
-            City::create($label_cidade);
-        }
+        ]);
     }
 }
