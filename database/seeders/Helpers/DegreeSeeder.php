@@ -3,9 +3,9 @@
 namespace Database\Seeders\Helpers;
 
 use Illuminate\Database\Seeder;
-use App\Models\Helpers\Course;
+use App\Models\Helpers\Degree;
 
-class CourseSeeder extends Seeder
+class DegreeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        Course::insert([
+        Degree::insert([
             ['id' => '0111C012', 'name' => 'Ciência da educação - Bacharelado'],
             ['id' => '0111C014', 'name' => 'Ciência da educação - Sequencial'],
             ['id' => '0111P013', 'name' => 'Processos escolares - Tecnológico'],

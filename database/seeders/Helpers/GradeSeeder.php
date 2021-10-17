@@ -3,9 +3,9 @@
 namespace Database\Seeders\Helpers;
 
 use Illuminate\Database\Seeder;
-use App\Models\Helpers\Stage;
+use App\Models\Helpers\Grade;
 
-class StageSeeder extends Seeder
+class GradeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class StageSeeder extends Seeder
      */
     public function run()
     {
-        Stage::insert([
+        Grade::insert([
             ['id' => '1', 'name' => 'Educação infantil - creche (0 a 3 anos)', 'order' => '0'],
             ['id' => '2', 'name' => 'Educação infantil - pré-escola (4 e 5 anos)', 'order' => '1'],
             ['id' => '3', 'name' => 'Educação infantil - unificada (0 a 5 anos)', 'order' => '33'],

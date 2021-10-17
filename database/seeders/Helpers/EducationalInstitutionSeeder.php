@@ -6540,7 +6540,7 @@ class EducationalInstitutionSeeder extends Seeder
             ['id' => '25277', 'name' => 'UNIVERSIDADE FEDERAL DO DELTA DO PARNAIBA', 'situation' => '1', 'city_id' => '2207702'],
             ['id' => '25282', 'name' => 'UNIVERSIDADE FEDERAL DE JATAÍ', 'situation' => '1', 'city_id' => '5211909'],
             ['id' => '25352', 'name' => 'UNIVERSIDADE FEDERAL DE RONDONÓPOLIS', 'situation' => '1', 'city_id' => '5107602'],
-            ['id' => '9999999', 'name' => 'INSTITUICAO NAO CADASTRADA', 'situation' => '0', 'city_id' => '0']
+            ['id' => '9999999', 'name' => 'INSTITUICAO NAO CADASTRADA', 'situation' => '0', 'city_id' => null]
         ]);
     }
 }

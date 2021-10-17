@@ -14,66 +14,61 @@ class CreateHelperTables extends Migration
     public function up()
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 100);
             $table->string('nationality', 100)->nullable();
             $table->string('ddi', 3)->nullable();
-            $table->primary("id");
         });
 
         Schema::create('states', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 50);
             $table->string('fu', 2);
-            $table->primary("id");
         });
 
         Schema::create('cities', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 50);
-            $table->integer('fu_id')->references('id')->on('states');
-            $table->primary("id");
+            $table->foreignId('state_id')->constrained('states');
         });
 
         Schema::create('districts', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 50);
-            $table->string('city_id')->references('id')->on('cities');
-            $table->primary("id");
+            $table->foreignId('city_id')->constrained('cities');
         });
 
         Schema::create('additional_activities', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 150);
-            $table->primary("id");
         });
 
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('degrees', function (Blueprint $table) {
             $table->string("id", 32);
             $table->string('name', 100);
             $table->primary("id");
         });
 
-        Schema::create('disciplines', function (Blueprint $table) {
+        Schema::create('school_subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
             $table->string('census_id');
             $table->string('abbreviation', 50);
         });
 
-        Schema::create('stages', function (Blueprint $table) {
+        Schema::create('grades', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
             $table->tinyInteger('order');
         });
 
         Schema::create('educational_institutions', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 255);
             $table->tinyInteger('situation');
-            $table->string('city_id')->references('id')->on('cities');
+            $table->unsignedBigInteger('city_id')->nullable();
             
-            $table->primary("id");
+            $table->foreign('city_id')->references('id')->on('cities');
         });
 
         Schema::create('class_names', function (Blueprint $table) {
@@ -87,27 +82,23 @@ class CreateHelperTables extends Migration
         });
 
         Schema::create('specialized_educational_services', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 255);
-            $table->primary("id");
         });
 
         Schema::create('indigenous_languages', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 255);
-            $table->primary("id");
         });
 
         Schema::create('school_dependencies', function (Blueprint $table) {
-            $table->integer("id")->unsigned();
+            $table->id();
             $table->string('name', 255);
-            $table->primary("id");
         });
 
-        Schema::create('course_catalogs', function (Blueprint $table) {
-            $table->integer("id");
+        Schema::create('certificate_programs', function (Blueprint $table) {
+            $table->id();
             $table->string('name', 255);
-            $table->primary("id");
         });
     }
 
@@ -123,15 +114,15 @@ class CreateHelperTables extends Migration
         Schema::dropIfExists('cities');
         Schema::dropIfExists('districts');
         Schema::dropIfExists('additional_activities');
-        Schema::dropIfExists('courses');
-        Schema::dropIfExists('disciplines');
-        Schema::dropIfExists('stages');
+        Schema::dropIfExists('degrees');
+        Schema::dropIfExists('school_subjects');
+        Schema::dropIfExists('grades');
         Schema::dropIfExists('educational_institutions');
         Schema::dropIfExists('class_names');
         Schema::dropIfExists('class_shifts');
         Schema::dropIfExists('specialized_educational_services');
         Schema::dropIfExists('indigenous_languages');
         Schema::dropIfExists('school_dependencies');
-        Schema::dropIfExists('course_catalogs');
+        Schema::dropIfExists('certificate_programs');
     }
 }

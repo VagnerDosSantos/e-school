@@ -3,9 +3,9 @@
 namespace Database\Seeders\Helpers;
 
 use Illuminate\Database\Seeder;
-use App\Models\Helpers\CourseCatalog;
+use App\Models\Helpers\CertificateProgram;
 
-class CourseCatalogSeeder extends Seeder
+class CertificateProgramSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CourseCatalogSeeder extends Seeder
      */
     public function run()
     {
-        CourseCatalog::insert([
+        CertificateProgram::insert([
             ['id' => '1001', 'name' => 'Agente Comunitário de Saúde'],
             ['id' => '1002', 'name' => 'Análises clínicas'],
             ['id' => '1004', 'name' => 'Citopatologia'],

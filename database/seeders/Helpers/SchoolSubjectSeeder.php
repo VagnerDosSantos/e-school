@@ -3,9 +3,9 @@
 namespace Database\Seeders\Helpers;
 
 use Illuminate\Database\Seeder;
-use App\Models\Helpers\Discipline;
+use App\Models\Helpers\SchoolSubject;
 
-class DisciplineSeeder extends Seeder
+class SchoolSubjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class DisciplineSeeder extends Seeder
      */
     public function run()
     {
-        Discipline::insert([
+        SchoolSubject::insert([
             ['id' => '1', 'name' => 'Língua / Literatura Portuguesa', 'census_id' => '6', 'abbreviation' => 'Português'],
             ['id' => '2', 'name' => 'Língua / Literatura estrangeira - Inglês', 'census_id' => '7', 'abbreviation' => 'Inglês'],
             ['id' => '3', 'name' => 'Língua / Literatura estrangeira - Espanhol

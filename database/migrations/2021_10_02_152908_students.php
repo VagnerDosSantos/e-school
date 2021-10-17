@@ -17,12 +17,13 @@ class Students extends Migration
             $table->id();
             $table->string('school_code');
             $table->string('student_code');
-            $table->year('period');
             $table->string('student_inep_code')->nullable();
+            $table->year('period');
             $table->string('name');
             $table->date('birthdate');
-            $table->string('cpf')->nullable();
 
+            $table->integer('id_parents')->reference('id')->on('parents');
+            $table->string('cpf')->nullable();
             $table->timestamps();
         });
     }
