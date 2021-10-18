@@ -13,107 +13,92 @@ class CreateHelperTables extends Migration
      */
     public function up()
     {
-        // Países
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('paises', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->string('nationality', 100)->nullable();
+            $table->string('nome', 100);
+            $table->string('nacionalidade', 100)->nullable();
             $table->string('ddi', 3)->nullable();
         });
 
-        // Estados
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('fu', 2);
+            $table->string('nome', 50);
+            $table->string('uf', 2);
         });
 
-        // Cidades
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('cidades', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->foreignId('state_id')->constrained('states');
+            $table->string('nome', 50);
+            $table->foreignId('estado_id')->references('id')->on('estados');
         });
 
-        // Distrito
-        Schema::create('districts', function (Blueprint $table) {
+        Schema::create('distritos', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->foreignId('city_id')->constrained('cities');
+            $table->string('nome', 50);
+            $table->foreignId('cidade_id')->references('id')->on('cidades');
         });
 
-        // Atividades complementares
-        Schema::create('additional_activities', function (Blueprint $table) {
+        Schema::create('atividades_complementares', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 150);
+            $table->string('nome', 150);
         });
 
-        // Curso superior
-        Schema::create('degrees', function (Blueprint $table) {
+        Schema::create('cursos_superiores', function (Blueprint $table) {
             $table->string("id", 32);
-            $table->string('name', 100);
+            $table->string('nome', 100);
             $table->primary("id");
         });
 
-        // Disciplinas
-        Schema::create('school_subjects', function (Blueprint $table) {
+        Schema::create('componentes_curriculares', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('census_id');
-            $table->string('abbreviation', 50);
+            $table->string('nome', 255);
+            $table->string('censo_id');
+            $table->string('abreviacao', 50);
         });
 
-        // Etapas: 1º ano,2º ano, etc
-        Schema::create('grades', function (Blueprint $table) {
+        Schema::create('etapas', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->tinyInteger('order');
+            $table->string('nome', 255);
+            $table->tinyInteger('ordem');
         });
 
-        //Faculdades
-        Schema::create('educational_institutions', function (Blueprint $table) {
+        Schema::create('faculdades', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->tinyInteger('situation');
-            $table->unsignedBigInteger('city_id')->nullable();
+            $table->string('nome', 255);
+            $table->tinyInteger('situacao');
+            $table->unsignedBigInteger('cidade_id')->nullable();
 
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('cidade_id')->references('id')->on('cidades');
         });
 
-        //Turmas ex: Turma A, B, etc
-        Schema::create('class_names', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
 
-        //Turno ex: matutino, vespertino, noturno
-        Schema::create('class_shifts', function (Blueprint $table) {
+        Schema::create('turnos', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
 
-        // Serviços educacionais especializados ex: para jovens com deficiência
-        Schema::create('specialized_educational_services', function (Blueprint $table) {
+        Schema::create('atendimento_educacional_especializado', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
 
-        //Linguagens indigenas
-        Schema::create('indigenous_languages', function (Blueprint $table) {
+        Schema::create('linguas_indigenas', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
 
-        //Infraestrutura escolar ex:se existem banheiros, diretoria, almoxarifado
-        Schema::create('school_dependencies', function (Blueprint $table) {
+        Schema::create('dependencias_escolares', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
 
-        //Cursos técnicos
-        Schema::create('certificate_programs', function (Blueprint $table) {
+        Schema::create('cursos_tecnicos', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
+            $table->string('nome', 255);
         });
     }
 
@@ -124,20 +109,20 @@ class CreateHelperTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
-        Schema::dropIfExists('states');
-        Schema::dropIfExists('cities');
-        Schema::dropIfExists('districts');
-        Schema::dropIfExists('additional_activities');
-        Schema::dropIfExists('degrees');
-        Schema::dropIfExists('school_subjects');
-        Schema::dropIfExists('grades');
-        Schema::dropIfExists('educational_institutions');
-        Schema::dropIfExists('class_names');
-        Schema::dropIfExists('class_shifts');
-        Schema::dropIfExists('specialized_educational_services');
-        Schema::dropIfExists('indigenous_languages');
-        Schema::dropIfExists('school_dependencies');
-        Schema::dropIfExists('certificate_programs');
+        Schema::dropIfExists('paises');
+        Schema::dropIfExists('estados');
+        Schema::dropIfExists('cidades');
+        Schema::dropIfExists('distritos');
+        Schema::dropIfExists('atividades_complementares');
+        Schema::dropIfExists('cursos_superiores');
+        Schema::dropIfExists('componentes_curriculares');
+        Schema::dropIfExists('etapas');
+        Schema::dropIfExists('faculdades');
+        Schema::dropIfExists('classes');
+        Schema::dropIfExists('turnos');
+        Schema::dropIfExists('atendimento_educacional_especializado');
+        Schema::dropIfExists('linguas_indigenas');
+        Schema::dropIfExists('dependencias_escolares');
+        Schema::dropIfExists('cursos_tecnicos');
     }
 }
