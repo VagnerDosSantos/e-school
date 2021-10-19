@@ -20,11 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('school');
-            $table->tinyInteger('access_level');
+            $table->string('escola_id', 8);
+            $table->tinyInteger('nivel_acesso');
             $table->tinyInteger('admin');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('escola_id')->references('codigo_escola')->on('escolas');
         });
     }
 

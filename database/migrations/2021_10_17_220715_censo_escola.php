@@ -13,25 +13,26 @@ class CensoEscola extends Migration
      */
     public function up()
     {
-        Schema::create('censo_escola', function (Blueprint $table) {
+        Schema::create('censo_escolas', function (Blueprint $table) {
             $table->id();
             $table->string('escola_id', 8);
             $table->year('periodo');
-            $table->string('local_funcionamento');
+            $table->string('local_funcionamento'); // Array
+            $table->tinyInteger('forma_ocupacao');
             $table->string('codigo_escola_compartilha')->nullable();
             $table->tinyInteger('fornece_agua');
-            $table->string('abastecimento_agua');
-            $table->string('fonte_energia');
-            $table->string('esgotamento_sanitario');
-            $table->string('destino_lixo');
-            $table->string('tratamento_lixo');
-            $table->string('dependencias_fisicas');
-            $table->string('recursos_acessibilidade');
+            $table->string('abastecimento_agua'); // Array
+            $table->string('fonte_energia'); // Array
+            $table->string('esgotamento_sanitario'); // Array
+            $table->string('destino_lixo'); // Array
+            $table->string('tratamento_lixo'); // Array
+            $table->string('dependencias_fisicas'); // Array
+            $table->string('recursos_acessibilidade'); // Array
             $table->string('salas_dentro_predio', 4)->nullable();
             $table->string('salas_fora_predio', 4)->nullable();
             $table->string('salas_climatizadas', 4)->nullable();
             $table->string('salas_acesssiveis', 4)->nullable();
-            $table->string('equipamentos_adminstrativo')->nullable();
+            $table->string('equipamentos_adminstrativo')->nullable(); // Array
             $table->string('dvd', 4)->nullable();
             $table->string('som', 4)->nullable();
             $table->string('televisao', 4)->nullable();
@@ -40,9 +41,9 @@ class CensoEscola extends Migration
             $table->string('computadores_mesa_alunos', 4)->nullable();
             $table->string('computadores_portateis_alunos', 4)->nullable();
             $table->string('tablets_alunos', 4)->nullable();
-            $table->string('acesso_internet')->nullable();
-            $table->string('equipamentos_alunos_internet')->nullable();
-            $table->string('rede_local')->nullable();
+            $table->string('acesso_internet')->nullable(); // Array
+            $table->string('equipamentos_alunos_internet')->nullable(); // Array
+            $table->string('rede_local')->nullable(); // Array
             $table->string('auxiliar_secretaria', 4)->nullable();
             $table->string('servicos_gerais', 4)->nullable();
             $table->string('bibliotecario', 4)->nullable();
@@ -58,26 +59,24 @@ class CensoEscola extends Migration
             $table->string('vice_diretor_adjunto', 4)->nullable();
             $table->string('orientador_comunitario', 4)->nullable();
             $table->tinyInteger('merenda_escolar');
-            $table->string('organizacao_ensino')->nullable();
-            $table->string('instrumentos_socioculturais');
+            $table->string('organizacao_ensino')->nullable(); // Array
+            $table->string('instrumentos_socioculturais'); // Array
             $table->tinyInteger('educacao_indigena');
             $table->string('lingua_indigena', 1)->nullable();
             $table->string('lingua_portuguesa', 1)->nullable();
-            $table->unsignedBigInteger('cod_indigena1')->nullable();
-            $table->unsignedBigInteger('cod_indigena2')->nullable();
-            $table->unsignedBigInteger('cod_indigena3')->nullable();
+            $table->foreignId('cod_indigena1')->nullable()->references('id')->on('linguas_indigenas');
+            $table->foreignId('cod_indigena2')->nullable()->references('id')->on('linguas_indigenas');
+            $table->foreignId('cod_indigena3')->nullable()->references('id')->on('linguas_indigenas');
             $table->tinyInteger('exame_selecao');
-            $table->string('reserva_vagas')->nullable();
+            $table->string('reserva_vagas')->nullable(); // Array
             $table->tinyInteger('possui_site');
             $table->tinyInteger('compartilha_espaco');
             $table->tinyInteger('utiliza_espacos_atividades');
-            $table->string('orgaos_colegiados');
+            $table->string('orgaos_colegiados'); // Array
             $table->tinyInteger('ppp');
-            
+            $table->timestamps();
+
             $table->foreign('escola_id')->references('codigo_escola')->on('escolas');
-            $table->foreign('cod_indigena1')->references('id')->on('linguas_indigenas');
-            $table->foreign('cod_indigena2')->references('id')->on('linguas_indigenas');
-            $table->foreign('cod_indigena3')->references('id')->on('linguas_indigenas');
         });
     }
 

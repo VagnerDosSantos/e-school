@@ -4,12 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\{Escola, CensoEscola};
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory(1)->create();
         $this->call([
             Helpers\PaisSeeder::class,
             Helpers\EstadoSeeder::class,
@@ -27,5 +27,10 @@ class DatabaseSeeder extends Seeder
             Helpers\ClasseSeeder::class,
             Helpers\AtendimentoEducacionalEspecializadoSeeder::class,
         ]);
+
+        Escola::factory(10)
+            ->has(CensoEscola::factory(), 'censo')
+            ->has(User::factory(), 'usuarios')
+            ->create();
     }
 }
