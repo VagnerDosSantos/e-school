@@ -15,10 +15,7 @@ class Escola extends Migration
     {
         Schema::create('escolas', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_escola', 8)->index()->onDelete('cascade');
-            $table->tinyInteger('situacao');
-            $table->date('data_inicio');
-            $table->date('data_final');
+            $table->string('codigo_escola', 8)->index();
             $table->string('nome', 100);
             $table->string('ato_criacao')->nullable();
             $table->string('cep', 8);
@@ -35,17 +32,6 @@ class Escola extends Migration
             $table->string('codigo_regional', 5);
             $table->tinyInteger('localizacao');
             $table->tinyInteger('localizacao_diferenciada');
-            $table->tinyInteger('dependencia_administrativa');
-            $table->string('vinculo_escolar');
-            $table->string('escola_privada_mantenedora')->nullable();
-            $table->string('escola_privada_categoria')->nullable();
-            $table->string('escola_privada_convenio_publico', 1)->nullable();
-            $table->string('escola_privada_mantenedora_cnpj', 14)->nullable();
-            $table->string('cnpj', 14)->nullable();
-            $table->string('regulamentacao_conselho', 1);
-            $table->string('esfera_administrativa');
-            $table->string('unidade_vinculada', 1);
-            $table->string('codigo_escola_sede', 8)->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
         });

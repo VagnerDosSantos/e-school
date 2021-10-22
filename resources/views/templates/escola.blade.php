@@ -68,7 +68,7 @@
 
     <main id="app">
         <div id="divisor" class="z-depth-2"></div>
-        @yield('content')
+        @yield('conteudo')
     </main>
 
     @include('templates.footer')

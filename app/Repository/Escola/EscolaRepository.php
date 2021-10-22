@@ -21,21 +21,21 @@ class EscolaRepository implements BaseInterface
 
     public function inserir(Request $request)
     {
+        
     }
 
     public function atualizar(Request $request, string $id)
     {
     }
 
-    public function deletar(string $id)
+    public function deletar(string $id): void
     {
         $this->autorizacao('delete', $this->escola);
-        exit;
         DB::transaction(function () use ($id) {
-            $deletar = $this->escola->firstWhere('codigo_escola', $id);
-            $deletar->censo->delete();
-            $deletar->usuario->delete();
-            $deletar->delete();
+            $escola = $this->escola->where('codigo_escola', $id)->first();
+            if ($escola) {
+                $escola = $escola->delete();
+            }
         }, 1);
     }
 }

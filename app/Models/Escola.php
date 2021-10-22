@@ -24,4 +24,12 @@ class Escola extends Model
     {
         return $this->hasOne(CensoEscola::class, 'escola_id', 'codigo_escola')->orderBy('periodo', 'desc');
     }
+
+    public static function booted()
+    {
+        static::deleting(function ($escola){
+            $escola->censo()->delete();
+            $escola->usuarios()->delete();
+        });
+    }
 }

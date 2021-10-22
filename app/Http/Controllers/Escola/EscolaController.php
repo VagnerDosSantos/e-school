@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Escola;
 use App\Http\Controllers\Controller;
 use App\Repository\Escola\EscolaRepository;
 use Illuminate\Http\Request;
+use App\Http\Requests\EscolaRequest;
 
 class EscolaController extends Controller
 {
@@ -27,7 +28,7 @@ class EscolaController extends Controller
      */
     public function create()
     {
-        //
+        return view('escola.escola.cadastro');
     }
 
     /**
@@ -36,9 +37,15 @@ class EscolaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EscolaRequest $request)
     {
-        //
+        $validar = $request->validated();
+    
+        echo '<pre>';
+        print_r($validar);
+        echo '</pre>';
+
+        exit;
     }
 
     /**

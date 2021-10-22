@@ -17,6 +17,20 @@ class CensoEscola extends Migration
             $table->id();
             $table->string('escola_id', 8);
             $table->year('periodo');
+            $table->tinyInteger('situacao');
+            $table->date('data_inicio');
+            $table->date('data_final');
+            $table->tinyInteger('dependencia_administrativa');
+            $table->string('vinculo_escolar');
+            $table->string('escola_privada_mantenedora')->nullable();
+            $table->string('escola_privada_categoria')->nullable();
+            $table->string('escola_privada_convenio_publico', 1)->nullable();
+            $table->string('escola_privada_mantenedora_cnpj', 14)->nullable();
+            $table->string('cnpj', 14)->nullable();
+            $table->string('regulamentacao_conselho', 1);
+            $table->string('esfera_administrativa');
+            $table->string('unidade_vinculada', 1);
+            $table->string('codigo_escola_sede', 8)->nullable();
             $table->string('local_funcionamento'); // Array
             $table->tinyInteger('forma_ocupacao');
             $table->string('codigo_escola_compartilha')->nullable();
