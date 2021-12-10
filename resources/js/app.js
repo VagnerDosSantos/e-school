@@ -18,8 +18,13 @@ window.Vue = require('vue').default;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 
 Vue.component('stacked-bar-chart', require('./components/StackedBarChart.vue').default);
+Vue.component('estados-select', require('./components/Estados.vue').default);
+Vue.component('cidades-select', require('./components/Cidades.vue').default);
+Vue.component('v-select', vSelect);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

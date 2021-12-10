@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="axios-url" content="{{ url('/axios') }}" />
 
     <title>e-School</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
@@ -51,10 +52,10 @@
 
                 <div class="collapsible-body">
                     <ul>
+                        <li><a href="{{ route('escola.pesquisar') }}">Escola</a></li>
                         <li><a href="#!">Alunos</a></li>
                         <li><a href="#!">Funcionários</a></li>
                         <li><a href="#!">Turmas</a></li>
-                        <li><a href="#!">Escola</a></li>
                     </ul>
                 </div>
             </li>
@@ -93,11 +94,12 @@
 
             $('.sidenav').sidenav();
             $('.collapsible').collapsible();
+            $('.tooltip').tooltip();
         });
     </script>
     <script src="{{ asset('js/app.js') }}"></script>
 
-    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <script src="{{ asset('js/multiple-select.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 

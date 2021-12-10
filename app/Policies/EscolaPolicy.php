@@ -32,7 +32,6 @@ class EscolaPolicy
      */
     public function view(User $user, Escola $escola)
     {
-        //
     }
 
     /**

@@ -18,7 +18,9 @@ class EscolaController extends Controller
 
     public function index()
     {
-        return view('');
+        return view('escola.pesquisar', [
+            'escolas' => $this->escola->pesquisar()
+        ]);
     }
 
     /**
@@ -28,7 +30,7 @@ class EscolaController extends Controller
      */
     public function create()
     {
-        return view('escola.escola.cadastro');
+        return view('escola.cadastro');
     }
 
     /**
@@ -40,7 +42,7 @@ class EscolaController extends Controller
     public function store(EscolaRequest $request)
     {
         $validar = $request->validated();
-    
+
         echo '<pre>';
         print_r($validar);
         echo '</pre>';
@@ -59,15 +61,11 @@ class EscolaController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('escola.formulario', [
+            'escola' => $this->escola->escola($id)
+        ]);
     }
 
     /**
@@ -79,6 +77,10 @@ class EscolaController extends Controller
      */
     public function update(Request $request, $id): void
     {
+        echo '<pre>';
+        print_r($request->all());
+        echo '</pre>';
+        exit;
         $this->escola->atualizar($request, $id);
     }
 

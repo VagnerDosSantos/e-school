@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('escola.home', [
+        return view('home', [
             'ativos' => 0,
             'transferidos' => 0,
             'desistentes' => 0,

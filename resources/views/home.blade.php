@@ -1,8 +1,6 @@
-@extends('templates.escola')
+@extends('templates.sistema')
 
 @section('conteudo')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts"></script> --}}
     <link rel="stylesheet" href="{{ asset('css/home-card.css') }}">
     <div class="container-wb">
         <div class="row">
